@@ -1,3 +1,6 @@
 Flix::Application.routes.draw do
-  get 'movies' => 'movies#about'
+  get 'about' => 'movies#about'
+  get 'privacy' => 'movies#privacy'
+  resources :movies
+  root 'movies#index'
 end
