@@ -3,4 +3,5 @@ Flix::Application.routes.draw do
   get 'privacy' => 'movies#privacy'
   resources :movies
   root 'movies#index'
+  get 'text-m-for-murder' => 'movies#murder'
 end
