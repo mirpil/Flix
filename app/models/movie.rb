@@ -15,9 +15,13 @@ class Movie < ActiveRecord::Base
 	
 
 	def runtime_hours
-	unless runtime.nil?
-		"#{runtime / 60} hrs. #{runtime % 60} min."
-	end
+		unless runtime.nil?
+			if runtime < 60 
+				"#{runtime} min."
+			else
+			"#{runtime / 60} hrs. #{runtime % 60} min."
+			end
+		end
 	end
 
 	def self.all_mpaa_ratings

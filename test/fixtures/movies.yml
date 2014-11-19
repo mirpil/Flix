@@ -1,23 +1,29 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
+star_wars:
+  title: Star Wars
   description: MyText
-  placement: MyString
-  mpaa_rating: MyString
-  runtime: 1
-  poster: MyString
+  placement: in_theaters
+  mpaa_rating: PG
+  runtime: 50
+  poster_image: star_wars.jpg
   has_subtitles: false
   ticket_price: 9.99
-  release_date: 2014-11-17
+  release_date: 2013-07-15
+  director: MyString
+  producer: MyString
+  studio: MyString
 
-two:
-  title: MyString
+godfather:
+  title: The Godfather
   description: MyText
-  placement: MyString
-  mpaa_rating: MyString
-  runtime: 1
-  poster: MyString
+  placement: go_now
+  mpaa_rating: R
+  runtime: 120
+  poster_image: godfather.jpg
   has_subtitles: false
   ticket_price: 9.99
-  release_date: 2014-11-17
+  release_date: 2013-07-15
+  director: MyString
+  producer: MyString
+  studio: MyString
