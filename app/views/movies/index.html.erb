@@ -4,29 +4,14 @@
         <div class="tabgroup">
           <nav class="tabs clearfix">
             <ul>
-              <li class="active"><a href="#">All Movies</a></li>
-              <li><a href="#">In Theaters</a></li>
-              <li><a href="#">Coming Soon</a></li>
-              <li><a href="#">Go Now</a></li>
+              <li<%= ' class=active' if @placement.nil? %>><%= link_to "All Movies", movies_path %></li>
+              <li<%= ' class=active' if @placement == "in_theaters" %>><%= link_to "In Theaters", "/movies/recommended/in_theaters" %></li>
+              <li<%= ' class=active' if @placement == "coming_soon" %>><%= link_to "Coming Soon", "/movies/recommended/coming_soon" %></li>
+              <li<%= ' class=active' if @placement == "go_now" %>><%= link_to "Go Now", "/movies/recommended/go_now" %></li>
             </ul>
           </nav>
           <div class="clearfix">
-            <ul class="content-links-list clearfix">
-              <% @movies.each do |movie| %>
-                <li>
-                  <%= link_to movie_path(movie) do %>
-                    <div class="clearfix">
-                      <%= image_tag "posters/thumbs/#{movie.poster_image}", class: 'imgLeft' %>
-                      <div class="clearfix">
-                        <h3><%= movie.title %></h3>
-                        <div><%= movie.mpaa_rating %>, <%= movie.runtime %> minutes</div>
-                        <div><span class="button">More ›</span></div>
-                      </div>
-                    </div>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
+            <%= render 'movie_list', movies: @movies %>
             <div class="inset-block">
               <a class="more-movies" href="#">View More Movies</a>
             </div>

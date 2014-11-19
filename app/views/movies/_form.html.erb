@@ -13,6 +13,10 @@
 	<%= f.text_area :description, cols: 60, rows: 10 %>
 	</p>	
 <p>
+	<%= f.label :genre_id, "Genre" %>
+	<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: true %>
+	</p>
+<p>
 	<%= f.label :has_subtitles %>
 	<%= f.check_box :has_subtitles %>
 	</p>
@@ -39,7 +43,7 @@
 	</p>
 
 <p>
-	<% mpaa_ratings = options_for_select([["G", "G"], ["PG", "PG"], ["R", "R"], ["Not Rated", "NR"]], selected: @movie.mpaa_rating) %>
+	<% mpaa_ratings = options_for_select(Movie.all_mpaa_ratings, selected: @movie.mpaa_rating) %>
 	<%= f.label :mpaa_rating, "MPAA Rating" %>
 	<%= f.select :mpaa_rating, mpaa_ratings, include_blank: true %>
 	</p>

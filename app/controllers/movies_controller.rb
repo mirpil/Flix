@@ -8,6 +8,12 @@ class MoviesController < ApplicationController
 		@movies = Movie.all
 	end
 
+	def recommended
+		@placement = params[:placement]
+		@movies = Movie.with_placement(@placement)
+		render 'index'
+	end
+
 	def privacy
 		render 'privacy_policy'
 	end
@@ -37,7 +43,6 @@ class MoviesController < ApplicationController
 	end
 
 	def update
-			@movie = Movie.new(movie_params)
 		if @movie.update(movie_params)
 			redirect_to @movie, notice: 'Movie was succesfully updated.'
 		else
@@ -51,7 +56,7 @@ class MoviesController < ApplicationController
 	end
 
 	def movie_params
-		movie_params = params.require(:movie).permit(:title, :description, :has_subtitles, :placement, :mpaa_rating, :release_date, :ticket_price, :runtime, :poster_image, :director, :producer, :studio)
+		params.require(:movie).permit(:title, :description, :has_subtitles, :placement, :mpaa_rating, :release_date, :ticket_price, :runtime, :poster_image, :director, :producer, :studio, :genre_id)
 	end
 
 end

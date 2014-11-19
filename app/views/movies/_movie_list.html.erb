@@ -1,0 +1,17 @@
+<ul class="content-links-list clearfix">
+              <% movies.each do |movie| %>
+                <li>
+                  <%= link_to movie_path(movie) do %>
+                    <div class="clearfix">
+                      <%= image_tag "posters/thumbs/#{movie.poster_image}", class: 'imgLeft' %>
+                      <div class="clearfix">
+                        <h3><%= movie.title %></h3>
+                        <div><%= movie.cast %></div>
+                        <div><%= movie.mpaa_rating %>, <%= movie.runtime_hours %></div>
+                        <div><span class="button">More ›</span></div>
+                      </div>
+                    </div>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
